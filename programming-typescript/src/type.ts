@@ -51,3 +51,62 @@ const catOrDog:CarOrDog = {
     barks:false,
     wags:true,
 }
+
+let arrA = [1,2,3]
+let arrB = ['a','b']
+let arrC :string[] = ['a']
+let arrD = [1,'a']
+const arrE = [1,'a']
+let arrF = ['red']
+arrF.push('red')
+// arrF.push(true)
+let arrG = []
+arrG.push('')
+arrG.push(1)
+
+let arrH :number[] = []
+arrH.push(1)
+// arrH.push('1')
+
+function buildArray(){
+    const a = [];
+    a.push(1);
+    a.push('x')
+    return a;
+}
+
+const myBuilded = buildArray();
+// myBuilded.push(true)
+
+let tupleA :[number] = [1]
+let tupleB :[string,string,number] = ['a','b',1]
+tupleB = ['c','d',2]
+
+let trainFares:[number,number?][] = [
+    [3.75],
+    [1,2],
+    [1,3]
+]
+
+let friends:[string,...string[]] = [
+    '',
+    '1',
+    '22',
+]
+
+let list:[number,boolean,...string[]] = [1,true]
+
+let readonlyA: readonly number[] = [1,2,3]
+// readonlyA.push(1)
+
+const enum Languages {
+    English,
+    Spanish,
+    Russian,
+}
+
+let myFirstLanguage = Languages.English;
+let mySecondLanguage = Languages.Spanish;
+// let myThirdL = Languages.TT;
+
+let meow = null; // 推断为any？？？
