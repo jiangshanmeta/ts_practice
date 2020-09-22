@@ -46,3 +46,54 @@ type LeadNode = TreeNode & {
     isLeaf:true
 }
 
+type InnerNode = TreeNode & {
+    children:[TreeNode] | [TreeNode,TreeNode]
+}
+
+function mapNode<T extends TreeNode>(
+    node:T,
+    f:(value:string)=>string,
+):T{
+    return {
+        ...node,
+        value:f(node.value)
+    }
+}
+
+const nodeA:TreeNode = {
+    value:'1'
+}
+
+const nodeB:LeadNode = {
+    value:'1',
+    isLeaf:true,
+}
+
+const nodeC:InnerNode = {
+    value:'1',
+    children:[nodeB],
+}
+
+const nodeA1 = mapNode(nodeA,(item)=>item.toUpperCase());
+const nodeB1 = mapNode(nodeB,(item)=>item.toUpperCase());
+const nodeC1 = mapNode(nodeC,(item)=>item.toLowerCase());
+
+type HasSides = {
+    numberOfSides:number,    
+}
+
+type SidesHaveLength = {
+    sideLength:number,
+}
+
+function logPerimeter<Shape extends HasSides & SidesHaveLength>(s:Shape){
+    console.log(s.numberOfSides*s.sideLength)
+    return s;
+}
+
+function call<T extends unknown[],R>(
+    f:(...args:T)=>R,
+    ...args:T
+):R{
+    return f(...args)
+}
