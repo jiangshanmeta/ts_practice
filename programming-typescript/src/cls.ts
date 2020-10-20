@@ -63,7 +63,7 @@ class King extends Piece{
 
 class MySet{
     add(val:number):this{
-        console.log(val)
+        // console.log(val)
         return this;
     }
     has(val:number):boolean{
